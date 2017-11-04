@@ -8,8 +8,22 @@ class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: '',
             email: '',
-            password: ''
+            address: '',
+            country: '',
+            department: '',
+            city: '',
+            mobile: '',
+            phone: '',
+            validated: '',
+            active: '',
+            password: '',
+            salt: '',
+            providerId: '',
+            created: '',
+            rol: '',
+            organization: ''
         }
 
         this.searchUser = this.searchUser.bind(this);
@@ -37,17 +51,32 @@ class SignIn extends Component {
 
     render() {
         return (
+            name
+            email
+            address
+            country
+            department
+            city
+            mobile
+            phone
+            validated
+            active
+            password
+            salt
+            providerId
+            created
+            rol
+            organization
             <div className="App">
                 < div className="modal-dialog" >
                     <div className="espacioPading"></div>
                     <div className="loginmodal-container">
                         <h1>REGISTRO!!!!!</h1><br></br>
+                        <input type="text" name="name" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+                        
                         <input type="text" name="user" id="email" placeholder="Correo" value={this.state.email} onChange={this.handleChange} />
                         <input type="password" name="pass" id="password" placeholder="Clave" value={this.state.password} onChange={this.handleChange} />
-                        <input type="submit" name="login" className="login loginmodal-submit" value="Login" onClick={(event) => this.searchUser(event)} />
-                        <a path="/" component={About} >
-                            <input type="button" id="signIn" className="login loginmodal-submit" value="Sign in" onClick={(event) => this.handleClick(event)} />
-                        </a>
+                        <input type="submit" name="login" className="login loginmodal-submit" value="Login" onClick={(event) => this.registerUser(event)} />
                     </div>
                 </div>
             </div>

@@ -8,15 +8,16 @@ import './style.css';
 import axios from 'axios'
 import Sign from '../SignIn';
 
+
 const SignIn = () => (
     <div>
-        <h2>SignIn</h2>
+        <h2>Registro</h2>
         <Sign />
     </div>
 )
 
-class Login extends Component {
 
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,12 +34,12 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         })
-        .then(function (response) {
-            console.log('res', response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                console.log('res', response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     handleChange = event => {
@@ -46,8 +47,8 @@ class Login extends Component {
             [event.target.id]: event.target.value
         });
     }
-
     render() {
+        const { className, ...props } = this.props;
         return (
             <div className="App">
                 < div className="modal-dialog" >
@@ -60,17 +61,11 @@ class Login extends Component {
                         <Link to="/sign-in">
                             <input type="button" id="signIn" className="login loginmodal-submit" value="Sign in" />
                         </Link>
-                        <ul>
-                            <li><Link to="/">Login</Link></li>
-                            <li><Link to="/sign-in">Sign in</Link></li>
-                        </ul>
-                        <hr />
-                        <Route exact path="/" component={Login} />
                         <Route path="/sign-in" component={SignIn} />
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
